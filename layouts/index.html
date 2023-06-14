@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    {{ partial "header.html" . }}
+
+    <body>
+        {{ partial "head.html" . }}
+
+        {{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
+        {{ $pagesLength := ($paginator.Pages | len)}}
+        <div class="pure-g gallery">
+        {{ range $i, $val := $paginator.Pages }}
+            {{ partial "gallery_picture.html" $val }}
+        {{end}}
+        </div>
+
+        {{ template "_internal/pagination.html" . }}
+
+        {{ partial "footer.html" . }}
+    </body>
+</html>
