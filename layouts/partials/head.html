@@ -1,0 +1,24 @@
+<div class="header-container" roles="navigation" aria-label="main navigation">
+  <div class="header">
+    <a class="brand" href="/">
+      {{ $logo := resources.GetMatch .Site.Params.LogoPath }}
+      {{ partial "img.html" (dict "resource" (resources.GetMatch .Site.Params.LogoPath) "class" "logo" "options" "128x128 webp") }}
+      <br/>
+      <p class="site-title">{{ .Site.Title }}</p>
+    </a>
+    <p>
+      <div class="pure-menu pure-menu-horizontal">
+        <ul class="pure-menu-list">
+          {{ $menus := (.Site.Menus.main.ByWeight) }}
+          {{ $menuCount := (len $menus) }}
+          {{ range $index, $val := $menus }}
+            <li class="pure-menu-item"><a href="{{ $val.URL }}">{{ $val.Name }}</a></li>
+            {{ if ne (add $index 1) $menuCount }}
+              <li class="pure-menu-item menu-separator">/</li>
+            {{ end }}
+          {{ end }}
+        </ul>
+      </div>
+    </p>
+  </div>
+</div>
