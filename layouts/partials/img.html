@@ -1,0 +1,5 @@
+{{ $original := .resource}}
+{{ $options := default "900x webp q75" .options}}
+{{ $img := $original.Resize $options}}
+
+<img class="{{.class}}" src="{{$img.RelPermalink}}" />

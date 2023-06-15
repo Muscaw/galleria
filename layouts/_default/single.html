@@ -1,0 +1,8 @@
+{{ define "main" }}
+<article id="content">
+{{ .Content }}
+</article>
+{{ range .Params.images }}
+    {{ partial "img.html" (dict "resource" ($.Resources.GetMatch .) "class" "post-image")}}
+{{ end }}
+{{ end }}
