@@ -1,5 +1,4 @@
-{{ $original := .resource}}
-{{ $options := default "900x webp q75" .options}}
-{{ $img := $original.Resize $options}}
+{{ $img := .resource}}
+{{ $img = $img.Resize (printf "%dx%d Lanczos q100" $img.Width $img.Height)}}
 
 <img class="{{.class}}" src="{{$img.RelPermalink}}" />

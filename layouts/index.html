@@ -5,8 +5,7 @@
     <body>
         {{ partial "head.html" . }}
 
-        {{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
-        {{ $pagesLength := ($paginator.Pages | len)}}
+        {{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) 9 }}
         <div class="pure-g gallery">
         {{ range $i, $val := $paginator.Pages }}
             {{ partial "gallery_picture.html" $val }}

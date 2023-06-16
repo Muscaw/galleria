@@ -68,16 +68,24 @@
 /** Post **/
 
 .post-image {
-    max-width: 95%;
     max-height: 90vh;
+    max-width: 95%;
     display: block;
     margin: auto;
+    margin-bottom: 10px;
 }
 
 #content {
     display: block;
     margin: auto;
-    width: 95%;
+    width: 50%;
+}
+
+@media (max-width: 900px) {
+    
+    #content {
+        width: 90%;
+    }
 }
 
 /** Pagination **/
