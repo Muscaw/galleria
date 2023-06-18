@@ -4,7 +4,7 @@
       {{ $logo := resources.GetMatch .Site.Params.LogoPath }}
       {{ partial "img.html" (dict "resource" (resources.GetMatch .Site.Params.LogoPath) "class" "logo" "options" "128x128 webp") }}
       <br/>
-      <p class="site-title">{{ .Site.Title }}</p>
+      <title class="site-title">{{ .Site.Title }}</title>
     </a>
     <p>
       <div class="pure-menu pure-menu-horizontal">
@@ -14,7 +14,7 @@
           {{ range $index, $val := $menus }}
             <li class="pure-menu-item"><a href="{{ $val.URL }}">{{ $val.Name }}</a></li>
             {{ if ne (add $index 1) $menuCount }}
-              <li class="pure-menu-item menu-separator"> / </li>
+              <li class="pure-menu-item menu-separator">&nbsp;/&nbsp;</li>
             {{ end }}
           {{ end }}
         </ul>
