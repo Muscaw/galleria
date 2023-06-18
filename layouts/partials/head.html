@@ -14,7 +14,7 @@
           {{ range $index, $val := $menus }}
             <li class="pure-menu-item"><a href="{{ $val.URL }}">{{ $val.Name }}</a></li>
             {{ if ne (add $index 1) $menuCount }}
-              <li class="pure-menu-item menu-separator"> / </li>
+              <li class="pure-menu-item menu-separator">&nbsp;/&nbsp;</li>
             {{ end }}
           {{ end }}
         </ul>
