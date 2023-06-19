@@ -4,7 +4,7 @@
       {{ $logo := resources.GetMatch .Site.Params.LogoPath }}
       {{ partial "img.html" (dict "resource" (resources.GetMatch .Site.Params.LogoPath) "class" "logo" "options" "128x128 webp") }}
       <br/>
-      <p class="site-title">{{ .Site.Title }}</p>
+      <title class="site-title">{{ .Site.Title }}</title>
     </a>
     <p>
       <div class="pure-menu pure-menu-horizontal">
