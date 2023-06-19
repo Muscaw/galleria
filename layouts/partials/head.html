@@ -1,24 +1,26 @@
-<div class="header-container" roles="navigation" aria-label="main navigation">
-  <div class="header">
-    <a class="brand" href="/">
-      {{ $logo := resources.GetMatch .Site.Params.LogoPath }}
-      {{ partial "img.html" (dict "resource" (resources.GetMatch .Site.Params.LogoPath) "class" "logo" "options" "128x128 webp") }}
-      <br/>
-      <title class="site-title">{{ .Site.Title }}</title>
-    </a>
-    <p>
-      <div class="pure-menu pure-menu-horizontal">
-        <ul class="pure-menu-list">
-          {{ $menus := (.Site.Menus.main.ByWeight) }}
-          {{ $menuCount := (len $menus) }}
-          {{ range $index, $val := $menus }}
-            <li class="pure-menu-item"><a href="{{ $val.URL }}">{{ $val.Name }}</a></li>
-            {{ if ne (add $index 1) $menuCount }}
-              <li class="pure-menu-item menu-separator">&nbsp;/&nbsp;</li>
-            {{ end }}
-          {{ end }}
-        </ul>
-      </div>
-    </p>
-  </div>
-</div>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{ .Site.Title }}</title>
+	{{ partial "meta" . }}
+
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
+		integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css" />
+	{{ if .Site.Params.matomo }}
+	<script>
+		var _paq = window._paq = window._paq || [];
+		_paq.push(['trackPageView']);
+		_paq.push(['enableLinkTracking']);
+		(function () {
+			var u = "//{{ .Site.Params.matomo.hostname }}/";
+			_paq.push(['setTrackerUrl', u + 'piwik.php']);
+			_paq.push(['setSiteId', '{{ .Site.Params.matomo.siteId }}']);
+			var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+			g.async = true; g.src = u + 'piwik.js'; s.parentNode.insertBefore(g, s);
+		})();
+	</script>
+	{{ end }}
+</head>

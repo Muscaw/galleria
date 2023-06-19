@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-    {{ partial "header.html" . }}
+    {{ partial "head.html" . }}
 
     <body>
-        {{ partial "head.html" . }}
+        {{ partial "header.html" . }}
 
         {{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) 9 }}
         <div class="pure-g gallery">
