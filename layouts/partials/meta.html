@@ -1,10 +1,15 @@
-<meta name="description" content="{{ .Site.Title }}" />
+{{ $title := .Site.Title }}
+{{ if isset .Params "title" }}
+ {{ $title = printf "%s - %s" .Site.Title .Params.title }}
+{{ end }}
 
-<title itemprop="name">{{ .Site.Title }}</title>
-<meta property="og:title" content="{{ .Site.Title }}" />
-<meta name="twitter:title" content="{{ .Site.Title }}" />
-<meta itemprop="name" content="{{ .Site.Title }}" />
-<meta property="og:site_name" content="{{ .Site.Title }}" />
+<meta name="description" content="{{ $title }}" />
+
+<title itemprop="name">{{ $title }}</title>
+<meta property="og:title" content="{{ $title }}" />
+<meta name="twitter:title" content="{{ $title }}" />
+<meta itemprop="name" content="{{ $title }}" />
+<meta property="og:site_name" content="{{ $title }}" />
 <meta name="description" content="{{ default .Site.Params.Subtitle .Params.Subtitle }}" />
 <meta itemprop="description" content="{{ default .Site.Params.Subtitle .Params.Subtitle }}" />
 <meta property="og:description" content="{{ default .Site.Params.Subtitle .Params.Subtitle }}" />
@@ -19,12 +24,10 @@
     <meta name="twitter:creator" content="{{ . }}" />
 {{ end }}
 {{ $img := "" }}
-{{ if .Params.images }}
-    {{ $images := .Params.images}}
-    {{ $firstImage := index $images 0}}
-    {{ $img = .Page.Resources.GetMatch $firstImage }}
+{{ if .Params.image }}
+    {{ $img = .Page.Resources.GetMatch .Params.image }}
     {{ if eq $img nil }}
-        {{ errorf "Page front-matter images is not retrievable. Path %q" $firstImage }}
+        {{ errorf "Page front-matter images is not retrievable. Path %q" .Params.image }}
     {{ end }}
 {{ else if .Site.Params.mainImage }}
     {{ $img = resources.Get .Site.Params.mainImage}}

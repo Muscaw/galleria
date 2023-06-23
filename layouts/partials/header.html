@@ -1,10 +1,14 @@
+{{ $title := .Site.Title }}
+{{ if isset .Params "title" }}
+ {{ $title = .Params.title }}
+{{ end }}
 <div class="header-container" roles="navigation" aria-label="main navigation">
   <div class="header">
     <a class="brand" href="/">
       {{ $logo := resources.GetMatch .Site.Params.LogoPath }}
       {{ partial "img.html" (dict "resource" (resources.GetMatch .Site.Params.LogoPath) "class" "logo" "options" "128x128 webp") }}
       <br/>
-      <title class="site-title">{{ .Site.Title }}</title>
+      <p class="site-title">{{ .Site.Title }}</p>
     </a>
     <p>
       <div class="pure-menu pure-menu-horizontal">
