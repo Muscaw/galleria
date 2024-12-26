@@ -20,5 +20,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-node@v4
+      - run: ls
       - run: npm ci --include dev
       - run: npx prettier .
