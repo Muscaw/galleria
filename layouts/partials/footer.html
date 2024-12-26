@@ -1,6 +1,6 @@
 <footer class="footer">
-    <p>Made with <a href="https://github.com/Muscaw/galleria">galleria</a></p>
-    {{ if isset .Site.Params "copyright" }}
+  <p>Made with <a href="https://github.com/Muscaw/galleria">galleria</a></p>
+  {{ if isset .Site.Params "copyright" }}
     <p>Copyright {{ now.Format "2006" }} {{ .Site.Params.Copyright }}</p>
-    {{ end }}
+  {{ end }}
 </footer>

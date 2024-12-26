@@ -1,7 +1,8 @@
 {{ $title := .Site.Title }}
 {{ if isset .Params "title" }}
- {{ $title = printf "%s - %s" .Site.Title .Params.title }}
+  {{ $title = printf "%s - %s" .Site.Title .Params.title }}
 {{ end }}
+
 
 <meta name="description" content="{{ $title }}" />
 
@@ -10,33 +11,45 @@
 <meta name="twitter:title" content="{{ $title }}" />
 <meta itemprop="name" content="{{ $title }}" />
 <meta property="og:site_name" content="{{ $title }}" />
-<meta name="description" content="{{ default .Site.Params.Subtitle .Params.Subtitle }}" />
-<meta itemprop="description" content="{{ default .Site.Params.Subtitle .Params.Subtitle }}" />
-<meta property="og:description" content="{{ default .Site.Params.Subtitle .Params.Subtitle }}" />
-<meta name="twitter:description" content="{{ default .Site.Params.Subtitle .Params.Subtitle }}" />
-<base href="{{ .RelPermalink }}">
-<link rel="canonical" href="{{ .Permalink }}" itemprop="url" /> 
+<meta
+  name="description"
+  content="{{ default .Site.Params.Subtitle .Params.Subtitle }}"
+/>
+<meta
+  itemprop="description"
+  content="{{ default .Site.Params.Subtitle .Params.Subtitle }}"
+/>
+<meta
+  property="og:description"
+  content="{{ default .Site.Params.Subtitle .Params.Subtitle }}"
+/>
+<meta
+  name="twitter:description"
+  content="{{ default .Site.Params.Subtitle .Params.Subtitle }}"
+/>
+<base href="{{ .RelPermalink }}" />
+<link rel="canonical" href="{{ .Permalink }}" itemprop="url" />
 <meta name="url" content="{{ .Permalink }}" />
 <meta property="og:url" content="{{ .Permalink }}" />
 <meta name="twitter:url" content="{{ .Permalink }}" />
 <meta name="twitter:card" content="summary" />
 {{ with .Site.Params.Author }}
-    <meta name="twitter:creator" content="{{ . }}" />
+  <meta name="twitter:creator" content="{{ . }}" />
 {{ end }}
 {{ $img := "" }}
 {{ if .Params.image }}
-    {{ $img = .Page.Resources.GetMatch .Params.image }}
-    {{ if eq $img nil }}
-        {{ errorf "Page front-matter images is not retrievable. Path %q" .Params.image }}
-    {{ end }}
+  {{ $img = .Page.Resources.GetMatch .Params.image }}
+  {{ if eq $img nil }}
+    {{ errorf "Page front-matter images is not retrievable. Path %q" .Params.image }}
+  {{ end }}
 {{ else if .Site.Params.mainImage }}
-    {{ $img = resources.Get .Site.Params.mainImage}}
-    {{ if eq $img nil }}
-        {{ errorf "Config's params mainImage is not retrievable. Path %q" .Site.Params.mainImage}}
-    {{ end }}
+  {{ $img = resources.Get .Site.Params.mainImage }}
+  {{ if eq $img nil }}
+    {{ errorf "Config's params mainImage is not retrievable. Path %q" .Site.Params.mainImage }}
+  {{ end }}
 {{ end }}
 {{ $i := $img.Fill "1600x900 center png" }}
 <meta itemprop="image" content="{{ $i.Permalink }}" />
 <meta property="og:image" content="{{ $i.Permalink }}" />
 <meta name="twitter:image" content="{{ $i.Permalink }}" />
-<meta property="og:locale" content="{{ .Language.Lang }}">
+<meta property="og:locale" content="{{ .Language.Lang }}" />
