@@ -22,4 +22,4 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
       - run: npm ci --include dev
-      - run: npx prettier .
+      - run: npx prettier . --list-different
