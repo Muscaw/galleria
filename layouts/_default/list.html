@@ -1,0 +1,9 @@
+{{ define "main" }}
+  {{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) (default 9 .Site.Params.numberOfItemsPerPageGallery) }}
+  <div class="pure-g gallery">
+    {{ range $i, $val := $paginator.Pages }}
+      {{ partial "gallery_picture.html" $val }}
+    {{ end }}
+  </div>
+  {{ template "_internal/pagination.html" . }}
+{{ end }}
