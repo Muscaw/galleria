@@ -34,6 +34,16 @@
   border-bottom: none !important;
 }
 
+.gallery-title {
+  text-align: center;
+  font-size: 2em;
+}
+
+.gallery-title {
+  text-align: center;
+  font-size: 2em;
+}
+
 .gallery-photo-container {
   padding: 20px;
 }
