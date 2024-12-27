@@ -37,11 +37,13 @@
 .gallery-title {
   text-align: center;
   font-size: 2em;
+  font-weight: normal;
 }
 
-.gallery-title {
+.gallery-date {
   text-align: center;
-  font-size: 2em;
+  font-size: 0.8em;
+  font-weight: normal;
 }
 
 .gallery-photo-container {
