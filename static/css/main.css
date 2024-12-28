@@ -34,6 +34,13 @@
   border-bottom: none !important;
 }
 
+.gallery-header {
+  border-style: solid;
+  padding: 0 2em 0 2em;
+  width: fit-content;
+  margin: 2em auto 2em auto;
+}
+
 .gallery-title {
   text-align: center;
   font-size: 2em;
@@ -147,6 +154,6 @@ a.active {
 /** Font setting **/
 
 body {
-  font-family: "Arial, sans-serif";
+  font-family: Arial, sans-serif;
   line-height: 1.5;
 }
