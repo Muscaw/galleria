@@ -1,0 +1,11 @@
+{{ define "main" }}
+  {{ $pins := slice }}
+  {{ range $i, $val := .Pages.ByDate }}
+    {{ $pins = $pins | append (dict "latlon" $val.Params.latlon) }}
+  {{ end }}
+  {{- partial "worldmap.html" (dict "pins" $pins "showLines" .Params.showLines) }}
+{{ end }}
+
+{{ define "extraimports" }}
+  {{ partial "leaflet.html" . }}
+{{ end }}
