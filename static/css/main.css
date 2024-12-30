@@ -70,6 +70,11 @@
 }
 
 /* Maps */
+
+.mapMarker {
+  font-size: 25px;
+}
+
 #worldmap {
   height: 500px;
   margin: 40px auto 0 auto;

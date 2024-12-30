@@ -16,15 +16,17 @@
 
   var latLons = [
   {{ range $i, $val := $pins }}
-    [{{$val | safeJS}}],
+    [{{$val.latlon | safeJS}}],
   {{ end }}
   ];
 
   var polyline = L.polyline(latLons, {color: "#791e94"}).addTo(map);
   map.fitBounds(polyline.getBounds());
 
+  {{ $markerSize := 25 }}
+
   {{ range $i, $val := $pins }}
-    L.marker([{{$val | safeJS}}]).addTo(map);
+  L.marker([{{$val.latlon | safeJS}}], {icon: L.divIcon({iconSize: [{{$markerSize}}, {{$markerSize}}], className: "mapMarker", html: "{{(substr ($val.locationEmoji | safeJS) 0 2)}}"})}).addTo(map);
   {{ end }}
 
 </script>
