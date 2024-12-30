@@ -1,0 +1,16 @@
+{{ $timeline := .timeline }}
+
+
+<div class="timeline">
+  {{ range $i, $val := $timeline }}
+    <a href="{{ $val.path }}">
+      <div class="timeline-name">
+        <div>{{ $val.locationEmoji }}</div>
+        <div>{{ $val.locationName }}</div>
+      </div>
+    </a>
+    {{ if (lt $i (sub (len $timeline) 1)) }}
+      <span class="timeline-line"></span>
+    {{ end }}
+  {{ end }}
+</div>

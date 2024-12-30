@@ -1,3 +1,7 @@
+:root {
+  --theme-color: #791e94;
+}
+
 .header-container {
   text-align: center;
   width: 100%;
@@ -33,6 +37,50 @@
 .brand {
   border-bottom: none !important;
 }
+
+/* Timeline */
+
+.timeline {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  height: 100px;
+  align-items: center;
+  padding: 0 2em 0 2em;
+}
+
+.timeline-name {
+  position: relative;
+  width: auto;
+}
+
+.timeline-name div {
+  text-align: center;
+}
+
+.timeline-line {
+  width: 100%;
+  height: 2px;
+  background-size: 5px;
+  background-color: var(--theme-color);
+  flex-grow: 1;
+  margin: 0 1em 0 1em;
+}
+
+/* Maps */
+#worldmap {
+  height: 500px;
+  margin: 40px auto 0 auto;
+}
+
+#map {
+  height: 500px;
+  margin: 40px auto 0 auto;
+}
+
+/* Gallery */
 
 .gallery-header {
   border-style: solid;
@@ -148,7 +196,7 @@ a {
 
 a:hover,
 a.active {
-  border-bottom: 5px solid #0000ff;
+  border-bottom: 5px solid var(--theme-color);
 }
 
 /** Font setting **/

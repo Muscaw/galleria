@@ -1,12 +1,5 @@
 {{ define "main" }}
-  <div class="gallery-header">
-    <h1 class="gallery-title">{{ .Title }}</h1>
-    <h2 class="gallery-date">{{ time.Format "2/1/2006" .Date }}</h2>
-  </div>
   <article id="content">
     {{ .Content }}
   </article>
-  {{ range .Params.images }}
-    {{ partial "img.html" (dict "resource" ($.Resources.GetMatch .) "class" "post-image") }}
-  {{ end }}
 {{ end }}

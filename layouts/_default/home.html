@@ -1,0 +1,26 @@
+{{ define "main" }}
+  {{ $pins := slice }}
+  {{ $timeline := slice }}
+  {{ range $i, $val := (where (where .Site.Pages.ByDate "Type" "trip") "BundleType" "branch")}}
+  {{ $showOnWorldMap := (default "true" $val.Params.showOnWorldMap)}}
+    {{ if $showOnWorldMap}}
+      {{ $pins = $pins | append $val.Params.latlon }}
+      {{ $timeline = $timeline | append (dict "locationName" $val.Params.locationName "locationEmoji" $val.Params.locationEmoji "path" $val.RelPermalink)}}
+    {{ end }}
+  {{end}}
+  {{- partial "worldmap.html" (dict "pins" $pins) }}
+
+  {{- partial "timeline.html" (dict "timeline" $timeline)}}
+
+  {{ $paginator := .Paginate (where .Site.RegularPages.ByDate.Reverse "Type" "trip") (default 9 .Site.Params.numberOfItemsPerPageGallery) }}
+  <ul>
+    {{ range $i, $val := $paginator.Pages }}
+    <li><a href="{{ $val.RelPermalink }}">{{ $val.Page.Title }}</a></a></li>
+    {{ end }}
+  </ul>
+  {{ template "_internal/pagination.html" . }}
+{{ end }}
+
+{{ define "extraimports" }}
+  {{ partial "leaflet.html" . }}
+{{ end }}
