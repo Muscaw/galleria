@@ -9,7 +9,7 @@
       <div class="gallery-photo post-item{{$zoomClass}}">
         <a href="{{ $val.RelPermalink }}">
           {{ partial "img.html" (dict "resource" (.Page.Resources.GetMatch .Params.image)) }}
-          <p class="post-title">{{ $val.Page.Title }}</p>
+          <p class="post-thumbnail-title">{{ $val.Page.Title }}</p>
         </a>
       </div>
     </div>

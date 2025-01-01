@@ -217,6 +217,11 @@
 }
 
 .post-title {
+  font-weight: normal;
+  text-align: center;
+}
+
+.post-thumbnail-title {
   position: absolute;
   bottom: 0;
   width: 80%;
