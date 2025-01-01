@@ -46,4 +46,8 @@
   ];
 
   markers.forEach((x) => L.marker(x.latlon, x.markerOptions).addTo(map));
+
+  if (markers.length === 1) {
+    map.setView(markers[0].latlon, 10);
+  }
 </script>
