@@ -221,6 +221,12 @@
   text-align: center;
 }
 
+.post-date {
+  font-weight: normal;
+  text-align: center;
+  font-size: medium;
+}
+
 .post-thumbnail-title {
   position: absolute;
   bottom: 0;
