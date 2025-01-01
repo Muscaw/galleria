@@ -194,6 +194,10 @@
   object-fit: cover;
 }
 
+.gallery-photo-do-not-zoom img {
+  max-height: 100%;
+}
+
 .footer {
   text-align: center;
 }
