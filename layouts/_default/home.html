@@ -12,13 +12,7 @@
 
   {{- partial "timeline.html" (dict "timeline" $timeline)}}
 
-  {{ $paginator := .Paginate (where .Site.RegularPages.ByDate.Reverse "Type" "trip") (default 9 .Site.Params.numberOfItemsPerPageGallery) }}
-  <ul>
-    {{ range $i, $val := $paginator.Pages }}
-    <li><a href="{{ $val.RelPermalink }}">{{ $val.Page.Title }}</a></a></li>
-    {{ end }}
-  </ul>
-  {{ template "_internal/pagination.html" . }}
+  {{- partial "posts.html" . }}
 {{ end }}
 
 {{ define "extraimports" }}

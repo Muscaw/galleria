@@ -1,0 +1,14 @@
+{{ $paginator := .Paginate (where .Site.RegularPages.ByDate.Reverse "Type" "trip") (default 9 .Site.Params.numberOfItemsPerPageGallery) }}
+<div class="pure-g">
+  {{ range $i, $val := $paginator.Pages }}
+    <div class="gallery-photo-container pure-u-1 pure-u-lg-1-3">
+      <div class="gallery-photo post-item">
+        <a href="{{ $val.RelPermalink }}">
+          {{ partial "img.html" (dict "resource" (.Page.Resources.GetMatch .Params.image)) }}
+          <p class="post-title">{{ $val.Page.Title }}</p>
+        </a>
+      </div>
+    </div>
+  {{ end }}
+</div>
+{{ template "_internal/pagination.html" . }}
