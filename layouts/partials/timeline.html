@@ -1,0 +1,72 @@
+{{ $timeline := .timeline }}
+
+
+<div class="timeline">
+  <button id="prev-btn" class="timeline-btn">&lt;</button>
+  {{ range $i, $val := $timeline }}
+    <div class="timeline-item">
+      <a class="timeline-name" href="{{ $val.path }}">
+        <div>{{ $val.locationEmoji }}</div>
+        <div>{{ $val.locationName }}</div>
+      </a>
+    </div>
+    {{ if (lt $i (sub (len $timeline) 1)) }}
+      <!-- <span class="timeline-item timeline-line"></span> -->
+    {{ end }}
+  {{ end }}
+  <button id="next-btn" class="timeline-btn">&gt;</button>
+</div>
+
+<script>
+  // Number of items to display per page
+  var itemsPerPage = 5;
+  if (window.innerWidth < 700) {
+    itemsPerPage = 2;
+  } else if (window.innerWidth < 900) {
+    itemsPerPage = 3;
+  }
+
+  // Get all timeline items and navigation buttons
+  const timelineItems = Array.from(document.querySelectorAll(".timeline-item"));
+  const prevBtn = document.getElementById("prev-btn");
+  const nextBtn = document.getElementById("next-btn");
+
+  // Start index for visible items
+  let currentStartIndex = Math.max(0, timelineItems.length - itemsPerPage);
+
+  // Function to render visible timeline items
+  function renderTimeline() {
+    timelineItems.forEach((item, index) => {
+      if (
+        index >= currentStartIndex &&
+        index < currentStartIndex + itemsPerPage
+      ) {
+        item.style.display = "flex";
+      } else {
+        item.style.display = "none";
+      }
+    });
+
+    // Update button states
+    prevBtn.disabled = currentStartIndex <= 0;
+    nextBtn.disabled = currentStartIndex + itemsPerPage >= timelineItems.length;
+  }
+
+  // Button click handlers
+  prevBtn.addEventListener("click", () => {
+    if (currentStartIndex > 0) {
+      currentStartIndex -= itemsPerPage;
+      renderTimeline();
+    }
+  });
+
+  nextBtn.addEventListener("click", () => {
+    if (currentStartIndex + itemsPerPage < timelineItems.length) {
+      currentStartIndex += itemsPerPage;
+      renderTimeline();
+    }
+  });
+
+  // Initial render
+  renderTimeline();
+</script>

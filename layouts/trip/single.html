@@ -1,0 +1,12 @@
+{{ define "main" }}
+  <div id="map">
+  </div>
+  <article id="content">
+    {{ .Content }}
+  </article>
+  {{- partial "map.html" (dict "latlon" .Params.latlon "zoomLevel" .Params.zoomLevel) }}
+{{ end }}
+
+{{ define "extraimports" }}
+  {{ partial "leaflet.html" . }}
+{{ end }}

@@ -1,3 +1,7 @@
+:root {
+  --theme-color: #791e94;
+}
+
 .header-container {
   text-align: center;
   width: 100%;
@@ -33,6 +37,115 @@
 .brand {
   border-bottom: none !important;
 }
+
+/* Timeline */
+
+.timeline {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  height: 100px;
+  align-items: center;
+  padding: 0 2em 0 2em;
+}
+
+.timeline-name {
+  display: inline-block;
+  margin: 0 auto;
+  width: fit-content;
+  text-align: center;
+}
+
+.timeline-name:hover {
+  margin-top: 5px;
+}
+
+.timeline-name div {
+  text-align: center;
+}
+
+.timeline-item {
+  flex-grow: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 4vw;
+  transform: translateY(-50%);
+  height: 2px;
+  background-color: var(--theme-color);
+  z-index: -1;
+}
+
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 4vw;
+  transform: translateY(-50%);
+  height: 2px;
+  background-color: var(--theme-color);
+  z-index: -1;
+}
+
+.timeline-item:last-of-type::after, .timeline-item:first-of-type::before {
+  display: none;
+}
+
+.timeline-btn {
+  margin: 0 1vw;
+  background: unset;
+  border: unset;
+  font-weight: bold;
+  font-size: large;
+  color: var(--theme-color);
+}
+
+.timeline-btn:hover {
+  cursor: pointer;
+}
+
+.timeline-btn:disabled {
+  display: none;
+}
+
+.timeline-line {
+  width: 100%;
+  max-width: 200px;
+  height: 2px;
+  background-size: 5px;
+  background-color: var(--theme-color);
+  flex-grow: 1;
+  margin: 0 5px 0 5px;
+}
+
+/* Maps */
+
+.mapMarker {
+  font-size: 25px;
+}
+
+#worldmap {
+  height: 500px;
+  margin: 40px auto 0 auto;
+}
+
+#map {
+  height: 500px;
+  margin: 40px auto 0 auto;
+}
+
+/* Gallery */
 
 .gallery-header {
   border-style: solid;
@@ -93,6 +206,22 @@
 
 /** Post **/
 
+.section-title {
+  font-weight: normal;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.post-title {
+  position: absolute;
+  bottom: 0;
+  width: 80%;
+  background-color: white;
+  margin-left: 10%;
+  padding: 2vh 0;
+  padding: 10px;
+}
+
 .post-image {
   max-height: 95lv;
   max-width: 95%;
@@ -148,7 +277,7 @@ a {
 
 a:hover,
 a.active {
-  border-bottom: 5px solid #0000ff;
+  border-bottom: 5px solid var(--theme-color);
 }
 
 /** Font setting **/

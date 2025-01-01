@@ -1,0 +1,15 @@
+{{ define "main" }}
+  {{ $pins := slice }}
+  {{ range $i, $val := .Pages.ByDate }}
+    {{ $pins = $pins | append (dict "latlon" $val.Params.latlon) }}
+  {{ end }}
+  {{- partial "worldmap.html" (dict "pins" $pins "showLines" .Params.showLines) }}
+
+  <h2 class="section-title">Les derniers articles</h2>
+  {{ $posts := .Pages.ByDate.Reverse }}
+  {{- partial "posts.html" (dict "context" . "pages" $posts) }}
+{{ end }}
+
+{{ define "extraimports" }}
+  {{ partial "leaflet.html" . }}
+{{ end }}
