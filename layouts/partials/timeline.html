@@ -22,6 +22,8 @@
   var itemsPerPage = 5;
   if (window.innerWidth < 700) {
     itemsPerPage = 2;
+  } else if (window.innerWidth < 900) {
+    itemsPerPage = 3;
   }
 
   // Get all timeline items and navigation buttons
