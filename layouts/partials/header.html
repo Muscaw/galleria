@@ -11,7 +11,7 @@
         {{ $menus := (.Site.Menus.main.ByWeight) }}
         {{ $menuCount := (len $menus) }}
         {{ range $index, $val := $menus }}
-          <li class="pure-menu-item">
+          <li class="pure-menu-item no-decoration">
             <a href="{{ $val.URL }}">{{ $val.Name }}</a>
           </li>
           {{ if ne (add $index 1) $menuCount }}

@@ -5,7 +5,7 @@
   <button id="prev-btn" class="timeline-btn">&lt;</button>
   {{ range $i, $val := $timeline }}
     <div class="timeline-item">
-      <a class="timeline-name" href="{{ $val.path }}">
+      <a class="timeline-name no-decoration" href="{{ $val.path }}">
         <div>{{ $val.locationEmoji }}</div>
         <div>{{ $val.locationName }}</div>
       </a>

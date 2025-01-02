@@ -38,6 +38,10 @@
   border-bottom: none !important;
 }
 
+.home {
+  margin: 10vh auto !important;
+}
+
 /* Timeline */
 
 .timeline {
@@ -277,6 +281,10 @@
   font-weight: bold;
 }
 
+.no-decoration a,.no-decoration {
+  text-decoration: none !important;
+}
+
 /** Global settings **/
 
 * {
@@ -286,7 +294,6 @@
 }
 
 a {
-  text-decoration: none;
   color: #000000;
 }
 
