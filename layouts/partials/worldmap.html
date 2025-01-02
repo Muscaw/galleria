@@ -4,7 +4,13 @@
 
 <div id="worldmap"></div>
 <script>
-  var map = L.map("worldmap", { zoomControl: false });
+  var map = L.map("worldmap", { 
+    zoomControl: false,
+    dragging: false,
+    doubleClickZoom: false,
+    boxZoom: false,
+    scrollWheelZoom: false
+  });
 
   L.tileLayer(
     "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
