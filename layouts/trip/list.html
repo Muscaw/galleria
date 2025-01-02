@@ -1,7 +1,7 @@
 {{ define "main" }}
   {{ $pins := slice }}
   {{ $timeline := slice }}
-  {{ range $i, $val := (where .Pages.ByDate "BundleType" "branch") }}
+  {{ range $i, $val := .Pages.ByDate }}
     {{ $showOnWorldMap := (default "true" $val.Params.showOnWorldMap) }}
     {{ if $showOnWorldMap }}
       {{ $pins = $pins | append (dict "latlon" $val.Params.latlon "locationEmoji" $val.Params.locationEmoji ) }}
@@ -14,7 +14,7 @@
 
 
   <h2 class="section-title">Les derniers articles</h2>
-  {{ $posts := (where .Site.RegularPages.ByDate.Reverse "Type" "trip") }}
+  {{ $posts := .RegularPagesRecursive.ByDate.Reverse }}
   {{- partial "posts.html" (dict "context" . "pages" $posts) }}
 {{ end }}
 
