@@ -37,4 +37,9 @@
     src="{{ .Site.Params.umami.url }}"
     data-website-id="{{ .Site.Params.umami.websiteId }}"
   ></script>
+  {{ if (not hugo.IsProduction ) }}
+      <script>
+        localStorage.setItem("umami.disabled", "true");
+      </script>
+  {{ end }}
 {{ end }}
