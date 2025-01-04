@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="none">
+  <!-- Sunset Gradient Definition -->
+  <defs>
+    <linearGradient id="sunsetGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ff00c3" /> <!-- Vibrant Pink -->
+      <stop offset="50%" stop-color="#791e94" /> <!-- Rich Purple -->
+      <stop offset="100%" stop-color="#ff7f00" /> <!-- Warm Orange (Sunset) -->
+    </linearGradient>
+  </defs>
+
+  <!-- Marker Shape -->
+  <path d="M12 21c-4.97-4.97-8-8-8-11a8 8 0 1 1 16 0c0 3-3.03 6.03-8 11z" 
+        fill="url(#sunsetGradient)" stroke="#791e94" stroke-width="1.5" />
+
+  <!-- Inner Circle -->
+  <circle cx="12" cy="10" r="3" fill="white" stroke="#ff00c3" stroke-width="1.5" />
+</svg>

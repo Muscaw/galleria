@@ -38,6 +38,15 @@
 
   {{ $markerSize := 25 }}
 
+  {{ $marker := resources.Get "svg/marker.svg" }}
+
+  const marker = L.divIcon({
+    html: '{{$marker.Content | safeJS}}',
+    className: "",
+    iconSize: [48, 48],
+    iconAnchor: [24, 48],
+  });
+
   const markers = [
   {{ range $i, $val := $pins }}
       {
@@ -45,7 +54,7 @@
         {{ with $val.locationEmoji }}
         "markerOptions": {icon: L.divIcon({iconSize: [{{$markerSize}}, {{$markerSize}}], className: "mapMarker", html: "{{(substr ($val.locationEmoji | safeJS) 0 2)}}"})}
         {{ else }}
-        "markerOptions": {}
+        "markerOptions": {icon: marker}
         {{ end }}
       },
   {{ end }}
