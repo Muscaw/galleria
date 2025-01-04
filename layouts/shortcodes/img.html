@@ -1,1 +1,10 @@
-{{ partial "img.html" (dict "resource" (.Page.Resources.GetMatch (.Get 0)) "class" "post-image") }}
+{{ $imagePath := .Get 0 }}
+{{ if not $imagePath }}
+  {{ errorf "Image path is not set for shortcode img" }}
+{{ end }}
+
+{{ with .Page.Resources.GetMatch $imagePath }}
+  {{ partial "img.html" (dict "resource" . "class" "post-image") }}
+{{ else }}
+  {{ errorf "Image does not exist %v" $imagePath }}
+{{ end }}
