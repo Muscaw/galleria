@@ -15,6 +15,12 @@
   text-align: center;
 }
 
+@media (max-width: 900px) {
+  .header {
+    width: 100%;
+  }
+}
+
 .menu-separator {
   font-weight: bold;
 }
