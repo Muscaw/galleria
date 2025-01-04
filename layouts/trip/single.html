@@ -1,12 +1,13 @@
 {{ define "main" }}
   <div id="map">
   </div>
+  {{- partial "map.html" (dict "latlon" .Params.latlon "zoomLevel" .Params.zoomLevel) }}
   <h1 class="post-title">{{ .Title }}</h1>
   <h2 class="post-date">{{ time.Format ":date_full" .Date }}</h2>
   <article id="content">
     {{ .Content }}
   </article>
-  {{- partial "map.html" (dict "latlon" .Params.latlon "zoomLevel" .Params.zoomLevel) }}
+  {{- partial "posts_navigation.html" . }}
 {{ end }}
 
 {{ define "extraimports" }}

@@ -139,12 +139,7 @@
   font-size: 25px;
 }
 
-#worldmap {
-  height: 500px;
-  margin: 40px auto 0 auto;
-}
-
-#map {
+#worldmap, #map {
   height: 500px;
   margin: 40px auto 0 auto;
 }
@@ -203,6 +198,7 @@
 }
 
 .footer {
+  margin-top: 30px;
   text-align: center;
 }
 
@@ -247,6 +243,18 @@
   display: block;
   margin: auto;
   margin-bottom: 10px;
+}
+
+.post-pagination {
+  display: block;
+  margin: auto;
+  width: fit-content;
+  margin-top: 30px;
+}
+
+.post-pagination span {
+  border: solid var(--theme-color); 
+  padding: 10px;
 }
 
 #content {
