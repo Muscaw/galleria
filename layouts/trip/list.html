@@ -10,7 +10,10 @@
   {{ end }}
   {{- partial "worldmap.html" (dict "pins" $pins) }}
 
-  {{- partial "timeline.html" (dict "timeline" $timeline) }}
+  {{/* This is the top most bundle and we can generate the timeline */}}
+  {{ if and .IsSection (ne .Parent.Section .Section) }}
+    {{- partial "timeline.html" (dict "timeline" $timeline) }}
+  {{ end }}
 
 
   <h2 class="section-title">Les derniers articles</h2>
