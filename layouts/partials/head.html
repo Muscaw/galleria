@@ -16,7 +16,8 @@
 {{ range .AlternativeOutputFormats -}}
   {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 {{ end -}}
-{{ if .Site.Params.matomo }}
+{{ if hugo.IsProduction }}
+  {{ if .Site.Params.matomo }}
 	<script>
 		var _paq = window._paq = window._paq || [];
 		_paq.push(['trackPageView']);
@@ -29,32 +30,27 @@
 			g.async = true; g.src = u + 'piwik.js'; s.parentNode.insertBefore(g, s);
 		})();
 	</script>
-{{ end }}
+  {{ end }}
 
-{{ if .Site.Params.umami }}
-  <script
-    defer
-    src="{{ .Site.Params.umami.url }}"
-    data-website-id="{{ .Site.Params.umami.websiteId }}"
-  ></script>
-  <script type="text/javascript">
-    (() => {
-      const name = "outbound-link-click";
-      document.querySelectorAll("a").forEach((a) => {
-        if (
-          a.host !== window.location.host &&
-          !a.getAttribute("data-umami-event")
-        ) {
-          a.setAttribute("data-umami-event", name);
-          a.setAttribute("data-umami-event-url", a.href);
-        }
-      });
-    })();
-  </script>
-
-  {{ if (not hugo.IsProduction ) }}
-    <script>
-      localStorage.setItem("umami.disabled", "true");
+  {{ if .Site.Params.umami }}
+    <script
+      defer
+      src="{{ .Site.Params.umami.url }}"
+      data-website-id="{{ .Site.Params.umami.websiteId }}"
+    ></script>
+    <script type="text/javascript">
+      (() => {
+        const name = "outbound-link-click";
+        document.querySelectorAll("a").forEach((a) => {
+          if (
+            a.host !== window.location.host &&
+            !a.getAttribute("data-umami-event")
+          ) {
+            a.setAttribute("data-umami-event", name);
+            a.setAttribute("data-umami-event-url", a.href);
+          }
+        });
+      })();
     </script>
   {{ end }}
 {{ end }}
