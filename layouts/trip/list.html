@@ -12,6 +12,7 @@
 
   {{- partial "timeline.html" (dict "timeline" $timeline) }}
 
+
   <h2 class="section-title">Les derniers articles</h2>
   {{ $posts := .RegularPagesRecursive.ByDate.Reverse }}
   {{- partial "posts.html" (dict "context" . "pages" $posts) }}

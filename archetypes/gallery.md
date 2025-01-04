@@ -1,7 +1,7 @@
 ---
 title: <title>
 image: <image>
-date: {{ .Date }}
+date: { { .Date } }
 _build:
   publishResources: false
 ---

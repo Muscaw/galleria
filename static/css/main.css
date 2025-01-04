@@ -114,7 +114,8 @@
   z-index: -1;
 }
 
-.timeline-item:last-of-type::after, .timeline-item:first-of-type::before {
+.timeline-item:last-of-type::after,
+.timeline-item:first-of-type::before {
   display: none;
 }
 
@@ -151,7 +152,8 @@
   font-size: 25px;
 }
 
-#worldmap, #map {
+#worldmap,
+#map {
   height: 500px;
   margin: 40px auto 0 auto;
 }
@@ -265,7 +267,7 @@
 }
 
 .post-pagination span {
-  border: solid var(--theme-color); 
+  border: solid var(--theme-color);
   padding: 10px;
 }
 
@@ -301,7 +303,8 @@
   font-weight: bold;
 }
 
-.no-decoration a,.no-decoration {
+.no-decoration a,
+.no-decoration {
   text-decoration: none !important;
 }
 

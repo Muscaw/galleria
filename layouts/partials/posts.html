@@ -5,8 +5,8 @@
 <div class="pure-g">
   {{ range $i, $val := $paginator.Pages }}
     <div class="gallery-photo-container pure-u-1 pure-u-lg-1-3">
-      {{- $zoomClass := (cond (eq .Params.keepZoomLevel true) " gallery-photo-do-not-zoom" "")}}
-      <div class="gallery-photo post-item{{$zoomClass}}">
+      {{- $zoomClass := (cond (eq .Params.keepZoomLevel true) " gallery-photo-do-not-zoom" "") }}
+      <div class="gallery-photo post-item{{ $zoomClass }}">
         <a href="{{ $val.RelPermalink }}">
           {{ partial "img.html" (dict "resource" (.Page.Resources.GetMatch .Params.image)) }}
           <p class="post-thumbnail-title">{{ $val.Page.Title }}</p>

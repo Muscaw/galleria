@@ -15,7 +15,10 @@
             {{ if $val.Params.Image }}
               {{ with resources.GetMatch $val.Params.Image }}
                 <a href="{{ $val.URL }}"
-                  ><img class="menu-icon" src="{{ .Permalink }}" alt="{{ $val.Name }}"
+                  ><img
+                    class="menu-icon"
+                    src="{{ .Permalink }}"
+                    alt="{{ $val.Name }}"
                 /></a>
               {{ else }}
                 {{ errorf "Could not find icon image" }}
