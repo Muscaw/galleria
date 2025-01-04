@@ -7,6 +7,7 @@ locationEmoji: <emoji>
 latlon: <lat,lon comma separated>
 zoomLevel: <zoomLevel for the map>
 date: {{ .Date }}
+image: <Image>
 keepZoomLevel: false
 draft: true
 _build:
