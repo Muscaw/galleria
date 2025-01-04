@@ -1,9 +1,9 @@
 {{ $pages := .FirstSection.RegularPagesRecursive.ByDate.Reverse }}
 <div class="post-pagination">
   {{ with $pages.Prev . }}
-    <span><a href="{{ .RelPermalink }}">&lt;- {{ .Title }}</a></span>
+    <span><a href="{{ .RelPermalink }}">← {{ .Title }}</a></span>
   {{ end }}
   {{ with $pages.Next . }}
-    <span><a href="{{ .RelPermalink }}">{{ .Title }}-&gt;</a></span>
+    <span><a href="{{ .RelPermalink }}">{{ .Title }} →</a></span>
   {{ end }}
 </div>

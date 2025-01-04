@@ -12,7 +12,17 @@
         {{ $menuCount := (len $menus) }}
         {{ range $index, $val := $menus }}
           <li class="pure-menu-item no-decoration">
-            <a href="{{ $val.URL }}">{{ $val.Name }}</a>
+            {{ if $val.Params.Image }}
+              {{ with resources.GetMatch $val.Params.Image }}
+                <a href="{{ $val.URL }}"
+                  ><img class="menu-icon" src="{{ .Permalink }}" alt="{{ $val.Name }}"
+                /></a>
+              {{ else }}
+                {{ errorf "Could not find icon image" }}
+              {{ end }}
+            {{ else if $val.Name }}
+              <a href="{{ $val.URL }}">{{ $val.Name }}</a>
+            {{ end }}
           </li>
           {{ if ne (add $index 1) $menuCount }}
             <li class="pure-menu-item menu-separator">&nbsp;/&nbsp;</li>

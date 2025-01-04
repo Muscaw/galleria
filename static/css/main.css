@@ -19,6 +19,12 @@
   font-weight: bold;
 }
 
+.menu-icon {
+  width: 18px;
+  height: 18px;
+  margin-top: 6px;
+}
+
 .header-block {
   display: block;
 }
