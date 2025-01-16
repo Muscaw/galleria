@@ -278,7 +278,7 @@
 #content {
   display: block;
   margin: auto;
-  width: 50%;
+  width: 80%;
 }
 
 @media (max-width: 900px) {
