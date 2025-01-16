@@ -12,7 +12,7 @@
   id="{{ $mapId }}"
 ></div>
 <script>
-  var forceZoomLevel = {{ $forceZoomLevel | safeJS}} ? {{ $forceZoomLevel }} : 10;
+  var forceZoomLevel = {{ $forceZoomLevel | safeJS}};
   var map = L.map("{{$mapId}}", {
     zoomControl: false,
     dragging: false,
@@ -72,6 +72,6 @@
   markers.forEach((x) => L.marker(x.latlon, x.markerOptions).addTo(map));
 
   if (markers.length === 1 || forceZoomLevel) {
-    map.setView(markers[0].latlon, forceZoomLevel);
+    map.setView(markers[0].latlon, forceZoomLevel || 10);
   }
 </script>

@@ -3,6 +3,8 @@ title: <location_name>
 {{- if .Page.IsSection }}
 locationName: <location_name>
 locationEmoji: <emoji>
+{{- else }}
+showOnWorldMap: true
 {{- end }}
 latlon: <lat,lon comma separated>
 zoomLevel: <zoomLevel for the map>
