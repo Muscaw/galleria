@@ -1,7 +1,8 @@
 {{ $latlon := .latlon }}
 {{ $zoomLevel := (default 13 .zoomLevel) }}
+{{ $id := (default "map" .mapId) }}
 <script>
-var map = L.map("map", {
+  var map = L.map({{ $id }}, {
   zoomControl: false,
   dragging: false,
   doubleClickZoom: false,

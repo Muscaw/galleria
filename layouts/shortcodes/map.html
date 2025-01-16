@@ -1,0 +1,15 @@
+{{ $latlon := .Get 0 }}
+{{ $zoomLevel := .Get 1 }}
+
+{{ if not $latlon }}
+  {{ errorf "Missing latlon for map point" }}
+{{ end }}
+
+{{ if not $zoomLevel }}
+  {{ errorf "Missing zoom level for map" }}
+{{ end }}
+
+{{ $uniqueHash := (md5 (printf "%s-%s" $latlon $zoomLevel)) }}
+
+
+{{ partial "worldmap.html" (dict "pins" (slice (dict "latlon" $latlon)) "forceZoomLevel" $zoomLevel "showLines" false "mapId" $uniqueHash "additionalStyles" (slice "innerMap")) }}

@@ -158,6 +158,10 @@
   margin: 40px auto 0 auto;
 }
 
+.innerMap {
+  height: 50vh;
+}
+
 /* Gallery */
 
 .gallery-header {

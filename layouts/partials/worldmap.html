@@ -1,10 +1,19 @@
 {{ $pins := .pins }}
 {{ $showPolyline := (default true .showLines) }}
+{{ $mapId := (default "worldmap" .mapId ) }}
+{{ $additionalStyles := (default slice .additionalStyles ) }}
+{{ $forceZoomLevel := (default 0 .forceZoomLevel) }}
 
 
-<div id="worldmap"></div>
+<div
+  {{ if $additionalStyles }}
+    class="{{ delimit $additionalStyles " " }}"
+  {{ end }}
+  id="{{ $mapId }}"
+></div>
 <script>
-  var map = L.map("worldmap", {
+  var forceZoomLevel = {{ $forceZoomLevel | safeJS}} ? 10 : {{ $forceZoomLevel }};
+  var map = L.map("{{$mapId}}", {
     zoomControl: false,
     dragging: false,
     doubleClickZoom: false,
@@ -62,7 +71,7 @@
 
   markers.forEach((x) => L.marker(x.latlon, x.markerOptions).addTo(map));
 
-  if (markers.length === 1) {
-    map.setView(markers[0].latlon, 10);
+  if (markers.length === 1 || forceZoomLevel) {
+    map.setView(markers[0].latlon, forceZoomLevel);
   }
 </script>
