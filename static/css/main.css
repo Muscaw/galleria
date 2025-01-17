@@ -278,6 +278,12 @@
   width: 100%;
 }
 
+@media (max-width: 900px) {
+  .multiimg {
+    flex-wrap: wrap;
+  }
+}
+
 .post-pagination {
   display: block;
   margin: auto;
