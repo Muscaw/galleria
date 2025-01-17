@@ -1,0 +1,13 @@
+{{ $context := .context }}
+{{ $images := .images }}
+
+
+<div class="multiimg">
+  {{ range $i, $img := $images }}
+    {{ with $context.Page.Resources.GetMatch $img }}
+      {{ partial "img.html" (dict "resource" .) }}
+    {{ else }}
+      {{ errorf "Image does not exist %v" $img }}
+    {{ end }}
+  {{ end }}
+</div>

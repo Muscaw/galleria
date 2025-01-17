@@ -1,0 +1,3 @@
+{{ $images := .Params }}
+
+{{ partial "multiimg.html" (dict "images" $images "context" .) }}
