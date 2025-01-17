@@ -2,7 +2,7 @@
 {{ $images := .images }}
 
 
-<div class="multiimg">
+<div class="post-image multiimg">
   {{ range $i, $img := $images }}
     {{ with $context.Page.Resources.GetMatch $img }}
       {{ partial "img.html" (dict "resource" .) }}
