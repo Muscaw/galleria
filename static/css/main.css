@@ -269,6 +269,7 @@
   justify-content: space-between;
   align-items: stretch;
   width: 100%;
+  max-height: inherit !important;
 }
 
 .multiimg img {
