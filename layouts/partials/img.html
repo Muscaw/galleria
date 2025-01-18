@@ -1,5 +1,5 @@
 {{ $img := .resource }}
-{{ $img = $img.Resize (printf "%dx%d webp Lanczos q100" $img.Width $img.Height) }}
+{{ $img = $img.Resize (printf "%dx%d webp Lanczos q95" $img.Width $img.Height) }}
 
 
 <img class="{{ .class }}" src="{{ $img.RelPermalink }}" />
