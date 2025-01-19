@@ -200,7 +200,7 @@
   transform: scale(1.02);
 }
 
-.gallery-photo img {
+.gallery-photo a img {
   max-height: 200%;
   position: absolute;
   top: -100%;
