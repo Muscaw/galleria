@@ -1,0 +1,8 @@
+{{ $youtubeCode := .Get 0 }}
+
+{{ if not $youtubeCode }}
+  {{ errorf "Youtube URL is not set for shortcode ytb" }}
+{{ end }}
+<iframe class="youtube-player" type="text/html" width="720" height="405"
+  src="https://www.youtube.com/embed/{{$youtubeCode}}?modestbranding=1&playsinline=1&color=white&iv_load_policy=3"
+frameborder="0" allowfullscreen>

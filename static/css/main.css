@@ -263,6 +263,14 @@
   margin-bottom: 10px;
 }
 
+.youtube-player {
+  max-height: 95vh;
+  max-width: 100%;
+  display: block;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
 .multiimg {
   display: flex;
   gap: 10px;
