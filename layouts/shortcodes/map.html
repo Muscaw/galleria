@@ -1,5 +1,6 @@
 {{ $latlon := .Get 0 }}
 {{ $zoomLevel := .Get 1 }}
+{{ $cartoApiKey := .Get 2 }}
 
 {{ if not $latlon }}
   {{ errorf "Missing latlon for map point" }}
@@ -11,5 +12,4 @@
 
 {{ $uniqueHash := (md5 (printf "%s-%s" $latlon $zoomLevel)) }}
 
-
-{{ partial "worldmap.html" (dict "pins" (slice (dict "latlon" $latlon)) "forceZoomLevel" $zoomLevel "showLines" false "mapId" $uniqueHash "additionalStyles" (slice "innerMap")) }}
+{{ partial "worldmap.html" (dict "pins" (slice (dict "latlon" $latlon)) "forceZoomLevel" $zoomLevel "showLines" false "mapId" $uniqueHash "additionalStyles" (slice "innerMap")) "cartoApiKey" $cartoApiKey }}
